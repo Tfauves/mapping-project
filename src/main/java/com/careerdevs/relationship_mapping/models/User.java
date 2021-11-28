@@ -15,8 +15,10 @@ public class User {
     private String email;
 
     @OneToMany
-    @JoinColumn(name = "dog_id", referencedColumnName = "id")
+    @JoinColumn(name = "human_id", referencedColumnName = "id")
+
     @JsonIgnoreProperties("human")
+
     private List<Dog> dog;
 
     public User() {}

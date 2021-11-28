@@ -37,6 +37,13 @@ public class UserController {
         return new ResponseEntity<>(repository.save(newUser), HttpStatus.CREATED);
     }
 
+    @PutMapping("/dog")
+    public User addDogToUser(@RequestBody User updateData) {
+        User updatedUser = repository.findById(updateData.getId()).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        updatedUser.getDog().addAll(updateData.getDog());
+        return repository.save(updatedUser);
+    }
+
     @PutMapping("/{id}")
     public @ResponseBody User updateUserById(@PathVariable Long id, @RequestBody User updateData) {
         User updatedUser = repository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));

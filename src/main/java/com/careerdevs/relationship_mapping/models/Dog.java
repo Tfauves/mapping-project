@@ -14,9 +14,10 @@ public class Dog {
     private Integer age;
     private Integer weight;
 
+
     @ManyToOne
-    @JoinColumn(name = "dog_id", referencedColumnName = "id")
-//    @JsonIgnore
+    @JoinColumn(name = "human_id", referencedColumnName = "id")
+
     @JsonIncludeProperties("id")
     private User human;
 
