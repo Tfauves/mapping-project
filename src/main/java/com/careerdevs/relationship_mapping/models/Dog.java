@@ -1,8 +1,9 @@
 package com.careerdevs.relationship_mapping.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+
+import javax.persistence.*;
 
 @Entity
 public class Dog {
@@ -12,6 +13,12 @@ public class Dog {
     private String name;
     private Integer age;
     private Integer weight;
+
+    @ManyToOne
+    @JoinColumn(name = "dog_id", referencedColumnName = "id")
+//    @JsonIgnore
+    @JsonIncludeProperties("id")
+    private User human;
 
     public Dog() {}
 
@@ -51,5 +58,13 @@ public class Dog {
 
     public void setWeight(Integer weight) {
         this.weight = weight;
+    }
+
+    public User getHuman() {
+        return human;
+    }
+
+    public void setHuman(User human) {
+        this.human = human;
     }
 }

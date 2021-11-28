@@ -1,8 +1,10 @@
 package com.careerdevs.relationship_mapping.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -11,6 +13,11 @@ public class User {
     private Long id;
     private String name;
     private String email;
+
+    @OneToMany
+    @JoinColumn(name = "dog_id", referencedColumnName = "id")
+    @JsonIgnoreProperties("human")
+    private List<Dog> dog;
 
     public User() {}
 
@@ -41,5 +48,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Dog> getDog() {
+        return dog;
+    }
+
+    public void setDog(List<Dog> dog) {
+        this.dog = dog;
     }
 }

@@ -43,6 +43,7 @@ public class UserController {
 
         if(updateData.getName() != null) updatedUser.setName(updateData.getName());
         if(updateData.getEmail() != null) updatedUser.setEmail(updateData.getEmail());
+        if (updateData.getDog() != null) updatedUser.setDog(updateData.getDog());
 
         return repository.save(updatedUser);
     }
