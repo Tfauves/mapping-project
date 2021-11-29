@@ -28,6 +28,13 @@ public class DogController {
         return new ResponseEntity<>(repository.save(newDog), HttpStatus.CREATED);
     }
 
+    @PutMapping("/breed")
+    public Dog addBreed(@RequestBody Dog updateData) {
+        Dog dog = repository.findById(updateData.getId()).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        dog.getDogBreed().addAll(updateData.getDogBreed());
+        return repository.save(dog);
+    }
+
     @PutMapping("/{id}")
     public @ResponseBody Dog updateDogById(@PathVariable Long id, @RequestBody Dog updateData) {
         Dog updatedDog = repository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));

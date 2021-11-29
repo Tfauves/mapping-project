@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Dog {
@@ -19,6 +21,14 @@ public class Dog {
     @JoinColumn(name = "human_id", referencedColumnName = "id")
     @JsonIncludeProperties("id")
     private User human;
+
+    @ManyToMany
+    @JoinTable(
+            name = "dog_breed",
+            joinColumns = @JoinColumn(name = "dog_id"),
+            inverseJoinColumns = @JoinColumn(name = "breed_id")
+    )
+    private Set<Breed> dogBreed = new HashSet<>();
 
     public Dog() {}
 
@@ -66,5 +76,13 @@ public class Dog {
 
     public void setHuman(User human) {
         this.human = human;
+    }
+
+    public Set<Breed> getDogBreed() {
+        return dogBreed;
+    }
+
+    public void setDogBreed(Set<Breed> dogBreed) {
+        this.dogBreed = dogBreed;
     }
 }

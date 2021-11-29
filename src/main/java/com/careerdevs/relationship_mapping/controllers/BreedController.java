@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/breeds")
+@RequestMapping("/api/breeds")
 public class BreedController {
     @Autowired
     private BreedRepository repository;
