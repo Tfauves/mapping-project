@@ -33,7 +33,7 @@ public class BreedController {
         Breed breed = repository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
         if (updateData.getName() != null) breed.setName(updateData.getName());
-        if (updateData.getGroup() != null) breed.setGroup(updateData.getGroup());
+        if (updateData.getBreedGroup() != null) breed.setBreedGroup(updateData.getBreedGroup());
 
         return repository.save(breed);
     }

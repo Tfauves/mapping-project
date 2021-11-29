@@ -3,7 +3,6 @@ package com.careerdevs.relationship_mapping.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.List;
 
 @Entity
 public class Breed {
@@ -11,13 +10,13 @@ public class Breed {
     @GeneratedValue
     private Long id;
     private String name;
-    private String group;
+    private String breedGroup;
 
     public Breed() {}
 
-    public Breed(String name, String group) {
+    public Breed(String name, String breedGroup) {
         this.name = name;
-        this.group = group;
+        this.breedGroup = breedGroup;
     }
 
     public Long getId() {
@@ -36,11 +35,11 @@ public class Breed {
         this.name = name;
     }
 
-    public String getGroup() {
-        return group;
+    public String getBreedGroup() {
+        return breedGroup;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setBreedGroup(String breedGroup) {
+        this.breedGroup = breedGroup;
     }
 }
