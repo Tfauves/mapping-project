@@ -42,6 +42,7 @@ public class DogController {
         if (updateData.getName() != null) updatedDog.setName(updateData.getName());
         if (updateData.getAge() != null) updatedDog.setAge(updateData.getAge());
         if ( updateData.getWeight() != null) updatedDog.setWeight(updateData.getWeight());
+        if (updateData.getDogBreed() != null) updatedDog.setDogBreed(updateData.getDogBreed());
 
         return repository.save(updatedDog);
     }
