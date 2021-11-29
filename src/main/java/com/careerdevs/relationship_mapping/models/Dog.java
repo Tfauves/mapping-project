@@ -22,7 +22,7 @@ public class Dog {
     @JsonIncludeProperties("id")
     private User human;
 
-    @ManyToMany
+    @OneToMany
     @JoinTable(
             name = "dog_breed",
             joinColumns = @JoinColumn(name = "dog_id"),
