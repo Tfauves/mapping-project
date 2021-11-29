@@ -17,7 +17,6 @@ public class Dog {
 
     @ManyToOne
     @JoinColumn(name = "human_id", referencedColumnName = "id")
-
     @JsonIncludeProperties("id")
     private User human;
 

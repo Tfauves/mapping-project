@@ -17,6 +17,7 @@ public class User {
     @OneToMany
     @JoinColumn(name = "human_id", referencedColumnName = "id")
 
+
     @JsonIgnoreProperties("human")
 
     private List<Dog> dog;
