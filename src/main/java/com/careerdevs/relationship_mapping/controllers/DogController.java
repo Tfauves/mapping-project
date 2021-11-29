@@ -39,4 +39,10 @@ public class DogController {
         return repository.save(updatedDog);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> destroyDog(@PathVariable Long id) {
+        repository.deleteById(id);
+        return new ResponseEntity<>("Deleted", HttpStatus.OK);
+    }
+
 }
