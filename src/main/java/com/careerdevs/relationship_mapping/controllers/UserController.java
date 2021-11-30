@@ -1,6 +1,6 @@
 package com.careerdevs.relationship_mapping.controllers;
 
-import com.careerdevs.relationship_mapping.models.User;
+import com.careerdevs.relationship_mapping.models.user.User;
 import com.careerdevs.relationship_mapping.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

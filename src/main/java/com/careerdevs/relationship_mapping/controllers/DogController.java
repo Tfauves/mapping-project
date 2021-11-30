@@ -1,6 +1,6 @@
 package com.careerdevs.relationship_mapping.controllers;
 
-import com.careerdevs.relationship_mapping.models.Dog;
+import com.careerdevs.relationship_mapping.models.dog.Dog;
 import com.careerdevs.relationship_mapping.repositories.DogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;

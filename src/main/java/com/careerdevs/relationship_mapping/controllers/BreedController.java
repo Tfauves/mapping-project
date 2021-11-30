@@ -1,7 +1,7 @@
 package com.careerdevs.relationship_mapping.controllers;
 
 
-import com.careerdevs.relationship_mapping.models.Breed;
+import com.careerdevs.relationship_mapping.models.breed.Breed;
 import com.careerdevs.relationship_mapping.repositories.BreedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

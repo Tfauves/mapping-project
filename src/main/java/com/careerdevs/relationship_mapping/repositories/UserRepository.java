@@ -1,6 +1,6 @@
 package com.careerdevs.relationship_mapping.repositories;
 
-import com.careerdevs.relationship_mapping.models.User;
+import com.careerdevs.relationship_mapping.models.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
