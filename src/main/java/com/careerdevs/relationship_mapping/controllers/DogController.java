@@ -3,6 +3,7 @@ package com.careerdevs.relationship_mapping.controllers;
 import com.careerdevs.relationship_mapping.models.Dog;
 import com.careerdevs.relationship_mapping.repositories.DogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,11 @@ public class DogController {
     @GetMapping
     public @ResponseBody List<Dog> getAll() {
         return repository.findAll();
+    }
+
+    @GetMapping("/breed/{breedId}")
+    public List<Dog> getByBreed(@PathVariable Long breedId) {
+        return repository.findAllByDogBreed_id(breedId, Sort.by("name"));
     }
 
     @PostMapping
