@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -25,4 +26,16 @@ public class ActivityController {
     public ResponseEntity<Activity> createActivity(@RequestBody Activity newActivity) {
         return new ResponseEntity<>(repository.save(newActivity), HttpStatus.CREATED);
     }
+
+    @PutMapping("/{id}")
+    public @ResponseBody Activity updateActivity(@PathVariable Long id, @RequestBody Activity updateData) {
+        Activity activity = repository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        if (updateData.getDurationMins() != null) activity.setDurationMins(updateData.getDurationMins());
+        if (updateData.getActivityType() != null) activity.setActivityType(updateData.getActivityType());
+
+        return repository.save(activity);
+
+    }
+
 }

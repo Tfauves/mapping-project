@@ -9,15 +9,15 @@ public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long duration;
+    private Long durationMins;
 
     @OneToOne
     private ActivityType activityType;
 
     public Activity() {}
 
-    public Activity(Long duration, ActivityType activityType) {
-        this.duration = duration;
+    public Activity(Long durationMins, ActivityType activityType) {
+        this.durationMins = durationMins;
         this.activityType = activityType;
     }
 
@@ -29,12 +29,13 @@ public class Activity {
         this.id = id;
     }
 
-    public Long getDuration() {
-        return duration;
+    public Long getDurationMins() {
+        return durationMins;
     }
 
-    public void setDuration(Long duration) {
-        this.duration = duration;
+
+    public void setDurationMins(Long durationMins) {
+        this.durationMins = durationMins;
     }
 
     public ActivityType getActivityType() {

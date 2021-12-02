@@ -11,12 +11,12 @@ public class ActivityType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String action;
 
     public ActivityType() {}
 
-    public ActivityType(String name) {
-        this.name = name;
+    public ActivityType(String action) {
+        this.action = action;
     }
 
 
@@ -28,11 +28,11 @@ public class ActivityType {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getAction() {
+        return action;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAction(String action) {
+        this.action = action;
     }
 }
