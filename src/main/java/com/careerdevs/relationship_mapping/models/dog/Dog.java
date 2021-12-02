@@ -1,6 +1,6 @@
 package com.careerdevs.relationship_mapping.models.dog;
 
-import com.careerdevs.relationship_mapping.models.user.User;
+import com.careerdevs.relationship_mapping.models.owner.Owner;
 import com.careerdevs.relationship_mapping.models.breed.Breed;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
@@ -21,7 +21,7 @@ public class Dog {
     @ManyToOne
     @JoinColumn(name = "human_id", referencedColumnName = "id")
     @JsonIncludeProperties("id")
-    private User human;
+    private Owner human;
 
     @OneToMany
     @JoinTable(
@@ -71,11 +71,11 @@ public class Dog {
         this.weight = weight;
     }
 
-    public User getHuman() {
+    public Owner getHuman() {
         return human;
     }
 
-    public void setHuman(User human) {
+    public void setHuman(Owner human) {
         this.human = human;
     }
 
