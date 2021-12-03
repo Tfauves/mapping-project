@@ -14,13 +14,13 @@ public class Entry {
     private Timestamp timeOfEntry;
 
     @ManyToMany
-    private List<Activity> activityList;
+    private List<Activity> activity;
 
     public Entry() {}
 
-    public Entry(Timestamp timeOfEntry, List<Activity> activityList) {
+    public Entry(Timestamp timeOfEntry, List<Activity> activity) {
         this.timeOfEntry = timeOfEntry;
-        this.activityList = activityList;
+        this.activity = activity;
     }
 
     public Long getId() {
@@ -39,11 +39,11 @@ public class Entry {
         this.timeOfEntry = timeOfEntry;
     }
 
-    public List<Activity> getActivityList() {
-        return activityList;
+    public List<Activity> getActivity() {
+        return activity;
     }
 
-    public void setActivityList(List<Activity> activityList) {
-        this.activityList = activityList;
+    public void setActivity(List<Activity> activity) {
+        this.activity = activity;
     }
 }
