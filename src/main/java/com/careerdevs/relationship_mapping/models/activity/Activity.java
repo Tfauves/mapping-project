@@ -3,21 +3,22 @@ package com.careerdevs.relationship_mapping.models.activity;
 import com.careerdevs.relationship_mapping.models.activityType.ActivityType;
 
 import javax.persistence.*;
+import java.time.Duration;
 
 @Entity
 public class Activity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long durationMins;
+    private Duration duration;
 
     @OneToOne
     private ActivityType activityType;
 
     public Activity() {}
 
-    public Activity(Long durationMins, ActivityType activityType) {
-        this.durationMins = durationMins;
+    public Activity(Duration duration, ActivityType activityType) {
+        this.duration = duration;
         this.activityType = activityType;
     }
 
@@ -29,13 +30,13 @@ public class Activity {
         this.id = id;
     }
 
-    public Long getDurationMins() {
-        return durationMins;
+    public Duration getDuration() {
+        return duration;
     }
 
 
-    public void setDurationMins(Long durationMins) {
-        this.durationMins = durationMins;
+    public void setDuration(Duration duration) {
+        this.duration = duration;
     }
 
     public ActivityType getActivityType() {

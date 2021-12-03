@@ -11,7 +11,7 @@ public class Entry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Timestamp timeOfEntry;
+    private Timestamp timeOfEntry = new Timestamp(System.currentTimeMillis());
 
     @ManyToMany
     private List<Activity> activity;
