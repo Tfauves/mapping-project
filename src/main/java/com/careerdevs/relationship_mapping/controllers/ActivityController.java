@@ -35,7 +35,12 @@ public class ActivityController {
         if (updateData.getActivityType() != null) activity.setActivityType(updateData.getActivityType());
 
         return repository.save(activity);
+    }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> destroyActivity(@PathVariable Long id) {
+        repository.deleteById(id);
+        return new ResponseEntity<>("Deleted", HttpStatus.OK);
     }
 
 }
