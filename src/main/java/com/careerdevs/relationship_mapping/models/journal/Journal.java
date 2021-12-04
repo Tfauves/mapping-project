@@ -1,4 +1,4 @@
-package com.careerdevs.relationship_mapping.models;
+package com.careerdevs.relationship_mapping.models.journal;
 
 import com.careerdevs.relationship_mapping.models.entry.Entry;
 import com.careerdevs.relationship_mapping.models.owner.Owner;

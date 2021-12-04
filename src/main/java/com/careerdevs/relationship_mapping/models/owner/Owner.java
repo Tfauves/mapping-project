@@ -1,6 +1,6 @@
 package com.careerdevs.relationship_mapping.models.owner;
 
-import com.careerdevs.relationship_mapping.models.Journal;
+import com.careerdevs.relationship_mapping.models.journal.Journal;
 import com.careerdevs.relationship_mapping.models.dog.Dog;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
