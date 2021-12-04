@@ -2,6 +2,7 @@ package com.careerdevs.relationship_mapping.models.journal;
 
 import com.careerdevs.relationship_mapping.models.entry.Entry;
 import com.careerdevs.relationship_mapping.models.owner.Owner;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,14 +16,16 @@ public class Journal {
     @OneToMany
     private List<Entry> entry;
 
-//    @OneToOne
-//    private Owner owner;
+    @OneToOne
+    @JsonIncludeProperties("id")
+    private Owner owner;
 
     public Journal() {}
 
-//    public Journal(Entry entry) {
-//        this.entry = entry;
-//    }
+    public Journal(Owner owner, List<Entry> entry) {
+        this.owner = owner;
+        this.entry = entry;
+    }
 
     public Long getId() {
         return id;
@@ -38,5 +41,13 @@ public class Journal {
 
     public void setEntry(List<Entry> entry) {
         this.entry = entry;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 }
