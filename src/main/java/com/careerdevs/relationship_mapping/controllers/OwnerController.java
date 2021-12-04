@@ -45,14 +45,23 @@ public class OwnerController {
         return repository.save(owner);
     }
 
+    @PutMapping("/entry")
+    public @ResponseBody
+    Owner addEntryToJournal(@RequestBody Owner updateData) {
+        Owner owner = repository.findById(updateData.getId()).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        if (updateData.getJournal() != null) owner.setJournal(updateData.getJournal());
+        return repository.save(owner);
+    }
+
     @PutMapping("/{id}")
     public @ResponseBody
     Owner updateOwnerById(@PathVariable Long id, @RequestBody Owner updateData) {
         Owner owner = repository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        if(updateData.getName() != null) owner.setName(updateData.getName());
-        if(updateData.getEmail() != null) owner.setEmail(updateData.getEmail());
+        if (updateData.getName() != null) owner.setName(updateData.getName());
+        if (updateData.getEmail() != null) owner.setEmail(updateData.getEmail());
         if (updateData.getDog() != null) owner.setDog(updateData.getDog());
+        if (updateData.getJournal() != null) owner.setJournal(updateData.getJournal());
 
         return repository.save(owner);
     }

@@ -1,6 +1,7 @@
 package com.careerdevs.relationship_mapping.models.entry;
 
 import com.careerdevs.relationship_mapping.models.activity.Activity;
+import com.careerdevs.relationship_mapping.models.dog.Dog;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
