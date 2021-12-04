@@ -27,9 +27,10 @@ public class Owner {
 
     public Owner() {}
 
-    public Owner(String name, String email) {
+    public Owner(String name, String email, Journal journal) {
         this.name = name;
         this.email = email;
+        this.journal = journal;
     }
 
     public Long getId() {
@@ -40,9 +41,7 @@ public class Owner {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() {return name;}
 
     public void setName(String name) {
         this.name = name;
@@ -62,5 +61,13 @@ public class Owner {
 
     public void setDog(List<Dog> dog) {
         this.dog = dog;
+    }
+
+    public Journal getJournal() {
+        return journal;
+    }
+
+    public void setJournal(Journal journal) {
+        this.journal = journal;
     }
 }

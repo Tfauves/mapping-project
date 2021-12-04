@@ -4,6 +4,7 @@ import com.careerdevs.relationship_mapping.models.entry.Entry;
 import com.careerdevs.relationship_mapping.models.owner.Owner;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Journal {
@@ -12,7 +13,7 @@ public class Journal {
     private Long id;
 
     @OneToMany
-    private Entry entry;
+    private List<Entry> entry;
 
 //    @OneToOne
 //    private Owner owner;
@@ -31,11 +32,11 @@ public class Journal {
         this.id = id;
     }
 
-    public Entry getEntry() {
+    public List<Entry> getEntry() {
         return entry;
     }
 
-    public void setEntry(Entry entry) {
+    public void setEntry(List<Entry> entry) {
         this.entry = entry;
     }
 }
