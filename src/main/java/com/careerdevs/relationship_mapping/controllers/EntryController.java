@@ -31,4 +31,14 @@ public class EntryController {
         return new ResponseEntity<>(repository.save(newEntry), HttpStatus.CREATED);
     }
 
+    @PutMapping("/{id}")
+    public @ResponseBody Entry updateEntry(@PathVariable Long id, @RequestBody Entry updateData) {
+        Entry entry = repository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        if (updateData.getActivity() != null) entry.setActivity(updateData.getActivity());
+        if (updateData.getTimeOfEntry() != null) entry.setTimeOfEntry(updateData.getTimeOfEntry());
+
+        return repository.save(entry);
+    }
+
 }
