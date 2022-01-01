@@ -1,24 +1,25 @@
 package com.careerdevs.relationship_mapping.models.activity;
 
-import com.careerdevs.relationship_mapping.models.activityType.ActivityType;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Activity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
-    private Long duration;
-
-    @OneToOne
-    private ActivityType activityType;
+    private String action;
+//    private String duration;
+//    private String goal;
 
     public Activity() {}
 
-    public Activity(Long duration, ActivityType activityType) {
-        this.duration = duration;
-        this.activityType = activityType;
+    public Activity(String action) {
+        this.action = action;
+//        this.duration = duration;
+//        this.goal = goal;
     }
 
     public Long getId() {
@@ -29,20 +30,27 @@ public class Activity {
         this.id = id;
     }
 
-    public Long getDuration() {
-        return duration;
+    public String getAction() {
+        return action;
     }
 
-
-    public void setDuration(Long duration) {
-        this.duration = duration;
+    public void setAction(String action) {
+        this.action = action;
     }
 
-    public ActivityType getActivityType() {
-        return activityType;
-    }
-
-    public void setActivityType(ActivityType activityType) {
-        this.activityType = activityType;
-    }
+//    public String getDuration() {
+//        return duration;
+//    }
+//
+//    public void setDuration(String duration) {
+//        this.duration = duration;
+//    }
+//
+//    public String getGoal() {
+//        return goal;
+//    }
+//
+//    public void setGoal(String goal) {
+//        this.goal = goal;
+//    }
 }

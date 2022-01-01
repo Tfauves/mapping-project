@@ -31,8 +31,7 @@ public class ActivityController {
     public @ResponseBody Activity updateActivity(@PathVariable Long id, @RequestBody Activity updateData) {
         Activity activity = repository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        if (updateData.getDuration() != null) activity.setDuration(updateData.getDuration());
-        if (updateData.getActivityType() != null) activity.setActivityType(updateData.getActivityType());
+        if (updateData.getAction() != null) activity.setAction(updateData.getAction());
 
         return repository.save(activity);
     }
